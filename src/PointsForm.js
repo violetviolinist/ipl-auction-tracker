@@ -77,7 +77,7 @@ const PointsForm = (props) => {
                                         onClick={async () => {
                                             const postData = {};
                                             Object.keys(pointsInfo).forEach(player => {
-                                                if(!isNan(pointsInfo[player])) {
+                                                if(!isNaN(pointsInfo[player])) {
                                                     postData[player] = Number(pointsInfo[player]);
                                                 }
                                             });
