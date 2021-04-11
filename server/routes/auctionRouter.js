@@ -51,7 +51,7 @@ router.post('/updateScores', async (req, res, next) => {
                     let multiplier = 1;
                     if(participant.toObject().captain === player) {
                         multiplier = 2;
-                    } else if(participant.toObject().viceCaption) {
+                    } else if(participant.toObject().viceCaption === player) {
                         multiplier = 1.5;
                     }
                     totalIncrement += multiplier * parseInt(pointsInfo[player]);
