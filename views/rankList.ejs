@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jay will win</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <table class="styled-table">
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var i = 0; i < rankList.length; i++) { %>
+            <tr>
+            <td><%= rankList[i].name %></td>
+            <td><%= rankList[i].score %></td>
+            </tr>    
+            <% } %>
+        </tbody>
+     </table>
+  </body>
+</html>

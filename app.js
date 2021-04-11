@@ -28,6 +28,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ranklist', rankRouter);
 
+app.use(express.static(__dirname + '/public'));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
