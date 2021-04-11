@@ -11,10 +11,9 @@ export default class App extends React.Component {
       this.setState({ rankList: response.data });
     });
   }
-
   render() {
-    const { users } = this.state;
     return (
+        this.state.rankList && 
         <table class="styled-table">
             <thead>
                 <tr>
