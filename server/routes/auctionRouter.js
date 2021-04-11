@@ -39,7 +39,7 @@ router.post('/updateScores', async (req, res, next) => {
     } else {
         Object.keys(pointsInfo).forEach(async (player) => {
             await Player.updateOne({'name': player}, {
-                '$inc': { score: parseInt(pointsInfo[player]) },
+                '$inc': { score: Number(pointsInfo[player]) },
             });
         });
 
@@ -54,7 +54,7 @@ router.post('/updateScores', async (req, res, next) => {
                     } else if(participant.toObject().viceCaption === player) {
                         multiplier = 1.5;
                     }
-                    totalIncrement += multiplier * parseInt(pointsInfo[player]);
+                    totalIncrement += multiplier * Number(pointsInfo[player]);
                 }
             });
             await Participant.updateOne({ name: participant.toObject().name }, {
