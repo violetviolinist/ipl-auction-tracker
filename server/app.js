@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var rankRouter = require('./routes/rankRouter');
+var auctionRouter = require('./routes/auctionRouter');
 
 var app = express();
 
@@ -28,7 +28,7 @@ dbConnect();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/ranklist', rankRouter);
+app.use('/auction', auctionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
