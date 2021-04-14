@@ -1,13 +1,16 @@
 import React from "react";
+import { Accordion } from 'semantic-ui-react';
 import axios from "axios";
 import "./styles.css";
 import PointsForm from "./PointsForm";
-
+import RankList from './RankList';
 export default class App extends React.Component {
   state = {
       rankList: null,
       players: [],
+
   };
+
   async componentDidMount() {
     await axios.get("/auction/rankList").then((response) => {
         this.setState({...this.state, rankList: response.data });
@@ -16,34 +19,14 @@ export default class App extends React.Component {
         this.setState({...this.state, players: response.data });
     });
   }
+
   render() {
     return (
         <React.Fragment>
-        {
-            this.state.rankList && 
-            <table class="styled-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    this.state.rankList.map((participant, index) => {
-                        return (
-                            <tr>
-                                <td>#{index+1}</td>
-                                <td>{participant.name}</td>
-                                <td>{participant.score}</td>
-                            </tr>
-                        );
-                    })
-                }  
-            </tbody>
-        </table>
-        }
+            <RankList {...{
+                rankList: this.state.rankList,
+                players: this.state.players,
+            }} />
         {   
             this.state.players && this.state.players.length &&
             <PointsForm players={this.state.players} />
