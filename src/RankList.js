@@ -62,7 +62,7 @@ const RankList = (props) => {
                                             participant.players.map((player) => {
                                                 let designation = '';
                                                 if(participant.captain === player) {
-                                                    deisngation = '(C)';
+                                                    designation = '(C)';
                                                 } else if(participant.viceCaption === player) {
                                                     designation = '(VC)';
                                                 }
