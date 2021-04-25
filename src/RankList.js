@@ -60,11 +60,17 @@ const RankList = (props) => {
                                         <List verticalAlign="middle">
                                         {
                                             participant.players.map((player) => {
+                                                let designation = '';
+                                                if(participant.captain === player) {
+                                                    deisngation = '(C)';
+                                                } else if(participant.viceCaption === player) {
+                                                    designation = '(VC)';
+                                                }
                                                 return (
                                                     <List.Item>
                                                         <Image avatar src={teamIcons[playersTeamMap[player]]} />
                                                         <List.Content>
-                                                            <List.Header>{player}</List.Header>
+                                                            <List.Header>{player} {designation}</List.Header>
                                                         </List.Content>
                                                     </List.Item>
                                                 );
